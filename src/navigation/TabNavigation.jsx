@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ShopStackNavigator from './ShopStackNavigator';
 import CartStackNavigator from './CartStackNavigator';
 import OrdersStackNavigator from './OrdersStackNavigator';
+import InfoStackNavigator from './InfoStackNavigator';
 import Icon from 'react-native-vector-icons/Feather'
 import { colors } from '../global/colors';
 import { useWindowDimensions } from 'react-native';
@@ -50,6 +51,13 @@ export default function TabNavigator() {
                 component={OrdersStackNavigator}
                 options={{
                     tabBarIcon: ({focused}) => <Icon name="tablet" size={24} color={focused?colors.darkGray:colors.lightGray} />
+                }}
+            />
+            <Tab.Screen
+                name="Info"
+                component={InfoStackNavigator}
+                options={{
+                    tabBarIcon: ({focused}) => <Icon name="info" size={24} color={focused?colors.darkGray:colors.lightGray} />
                 }}
             />
         </Tab.Navigator>
