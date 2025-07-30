@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native'
-import categories from '../data/categories.json'
-import FlatCard from '../components/FlatCard'
+import categories from '../../data/categories.json'
+import FlatCard from '../../components/FlatCard'
+import TextTilliumReg from '../../components/TextTilliumReg'
 
-const CategoriesScreen = ({setCategorySelected}) => {
+const CategoriesScreen = ({navigation}) => {
     const renderCategoryItem = ({ item }) => (
-        <Pressable onPress={()=>setCategorySelected(item.title)}>
+        <Pressable onPress={()=>navigation.navigate("Productos",{category:item.title})}>
             <FlatCard>
                 <View style={styles.categoryContainer}>
-                    <Text>{item.title}</Text>
+                    <TextTilliumReg>{item.title}</TextTilliumReg>
                     <Image width={80} height={40} source={{ uri: item.image }} />
                 </View>
             </FlatCard>
