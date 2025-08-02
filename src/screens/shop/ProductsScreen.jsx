@@ -4,17 +4,18 @@ import FlatCard from '../../components/FlatCard'
 import { colors } from '../../global/colors'
 import { useEffect, useState } from 'react'
 import Search from '../../components/Search'
+import { useSelector } from 'react-redux'
 
-const ProductsScreen = ({ navigation,route }) => {
+const ProductsScreen = ({ navigation }) => {
     const [productsFiltered, setProductsFiltered] = useState([])
     const [keyword, setKeyword] = useState("")
 
-    const { category } = route.params
+    const products = useSelector(state=>state.shopReducer.products)
+    const category = useSelector(state=>state.shopReducer.categorySelected)
+
+    const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
 
     useEffect(() => {
-        const productsFilteredByCategory = products.filter(
-            product => product.category.toLowerCase() === category.toLowerCase()
-        )
         if (keyword) {
             const productsFilteredByKeyword = productsFilteredByCategory.filter(
                 product => product.title.toLowerCase().includes(keyword.toLowerCase())
