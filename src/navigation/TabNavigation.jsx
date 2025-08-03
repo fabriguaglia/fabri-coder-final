@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ShopStackNavigator from './ShopStackNavigator';
 import CartStackNavigator from './CartStackNavigator';
-import OrdersStackNavigator from './OrdersStackNavigator';
+import OrdersStackNavigator from './OrdersStackNavigator'
 import InfoStackNavigator from './InfoStackNavigator';
 import Icon from 'react-native-vector-icons/Feather'
 import { colors } from '../global/colors';
@@ -36,28 +36,28 @@ export default function TabNavigator() {
                 name="Shop"
                 component={ShopStackNavigator}
                 options={{
-                    tabBarIcon: ({focused}) => <Icon name="home" size={24} color={focused?colors.darkGray:colors.lightGray} />
+                    tabBarIcon: ({focused}) => <Icon name="shopping-bag" size={24} color={focused?colors.darkGray:colors.mediumGray} />
                 }}
             />
             <Tab.Screen
                 name="Cart"
                 component={CartStackNavigator}
                 options={{
-                    tabBarIcon: ({focused}) => <Icon name="shopping-cart" size={24} color={focused?colors.darkGray:colors.lightGray} />
+                    tabBarIcon: ({focused}) => <Icon name="shopping-cart" size={24} color={focused?colors.darkGray:colors.mediumGray} />
                 }}
             />
             <Tab.Screen
                 name="Orders"
                 component={OrdersStackNavigator}
                 options={{
-                    tabBarIcon: ({focused}) => <Icon name="tablet" size={24} color={focused?colors.darkGray:colors.lightGray} />
+                    tabBarIcon: ({focused}) => <Icon name="tablet" size={24} color={focused?colors.darkGray:colors.mediumGray} />
                 }}
             />
             <Tab.Screen
                 name="Info"
                 component={InfoStackNavigator}
                 options={{
-                    tabBarIcon: ({focused}) => <Icon name="info" size={24} color={focused?colors.darkGray:colors.lightGray} />
+                    tabBarIcon: ({focused}) => <Icon name="info" size={24} color={focused?colors.darkGray:colors.mediumGray} />
                 }}
             />
         </Tab.Navigator>

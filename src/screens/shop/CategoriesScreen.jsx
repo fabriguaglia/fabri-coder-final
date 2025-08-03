@@ -3,19 +3,20 @@ import FlatCard from '../../components/FlatCard'
 import TextTilliumReg from '../../components/TextTilliumReg'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCategorieSelected, filterProducts } from '../../shop/shop/shopSlice'
+import { useGetCategoriesQuery, useGetProductsByCategoryQuery } from '../../services/shop/shopApi'
 
-const CategoriesScreen = ({navigation}) => {
+const CategoriesScreen = ({ navigation }) => {
 
-    const categories = useSelector(state=>state.shopReducer.categories)
+    const { data: categories, isLoading, error } = useGetCategoriesQuery()
 
     const dispatch = useDispatch()
 
     const renderCategoryItem = ({ item }) => (
         <Pressable onPress={
-            ()=>{
+            () => {
                 dispatch(setCategorieSelected(item.title))
                 dispatch(filterProducts())
-                navigation.navigate("Productos") 
+                navigation.navigate("Productos")
             }}>
             <FlatCard>
                 <View style={styles.categoryContainer}>

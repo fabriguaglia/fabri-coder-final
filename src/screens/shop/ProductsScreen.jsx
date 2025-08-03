@@ -5,6 +5,7 @@ import { colors } from '../../global/colors'
 import { useEffect, useState } from 'react'
 import Search from '../../components/Search'
 import { useSelector } from 'react-redux'
+import { useGetProductsByCategoryQuery } from '../../services/shop/shopApi'
 
 const ProductsScreen = ({ navigation }) => {
     const [productsFiltered, setProductsFiltered] = useState([])
@@ -13,7 +14,7 @@ const ProductsScreen = ({ navigation }) => {
     const products = useSelector(state=>state.shopReducer.products)
     const category = useSelector(state=>state.shopReducer.categorySelected)
 
-    const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
+    const {data: productsFilteredByCategory, isLoading, error} = useGetProductsByCategoryQuery(category.toLowerCase())
 
     useEffect(() => {
         if (keyword) {
@@ -24,7 +25,7 @@ const ProductsScreen = ({ navigation }) => {
         } else {
             setProductsFiltered(productsFilteredByCategory)
         }
-    }, [category, keyword])
+    }, [category, keyword,productsFilteredByCategory])
 
     const renderProductItem = ({ item }) => (
         <Pressable onPress={()=>navigation.navigate("Producto",{product:item})}>
@@ -32,7 +33,6 @@ const ProductsScreen = ({ navigation }) => {
                 <Text>{item.title}</Text>
             </FlatCard>
         </Pressable>
-
     )
 
     return (
@@ -44,10 +44,7 @@ const ProductsScreen = ({ navigation }) => {
                 keyExtractor={item => item.id}
             />
         </>
-
     )
 }
 
 export default ProductsScreen
-
-const styles = StyleSheet.create({})
