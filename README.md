@@ -4,7 +4,7 @@
 
 # 📱 La Tienda de Fabri
 
-**La Tienda de Fabri** es una aplicación móvil de e-commerce especializada en productos electrónicos, desarrollada como proyecto final para la aprobación del curso de Desarrollo de Aplicaciones de **CoderHouse**.
+**La Tienda de Fabri** es una aplicación móvil de e-commerce especializada en productos electrónicos, desarrollada como proyecto final para la aprobación del curso de Desarrollo de Aplicaciones de **[CoderHouse]**(https://www.coderhouse.com/). 
 
 ## 🎯 Funcionalidades
 
