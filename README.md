@@ -52,7 +52,7 @@ npm install -g expo-cli
 1. Clona este repositorio:
 ```bash
 git clone https://github.com/fabriguaglia/fabri-coder-final.git
-cd la-tienda-de-fabri
+cd fabri-coder-final
 ```
 
 2. Instala las dependencias:
