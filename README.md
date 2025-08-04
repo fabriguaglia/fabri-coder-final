@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./logo.png" alt="La Tienda de Fabri Logo" width="200" height="150">
+  <img src="./logo.png" alt="La Tienda de Fabri Logo" width="200" height="107">
 </div>
 
 # 📱 La Tienda de Fabri
