@@ -9,7 +9,12 @@ export default function ProfileStackNavigator() {
         <Stack.Navigator
             initialRouteName='Perfil'
             screenOptions={{
-                header: ({route})=><Header title="La Tienda de Fabri" subtitle={route.name}  />
+                header: ({ route }) => (
+                <Header 
+                    imageSource={require('./logo.png')}
+                    subtitle={route.name}
+                />
+                )
             }}
         >
             <Stack.Screen name="Perfil" component={ProfileScreen} />
