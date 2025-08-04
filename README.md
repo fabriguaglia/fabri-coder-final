@@ -51,7 +51,7 @@ npm install -g expo-cli
 
 1. Clona este repositorio:
 ```bash
-git clone [https://github.com/fabriguaglia/fabri-coder-final.git]
+git clone https://github.com/fabriguaglia/fabri-coder-final.git
 cd la-tienda-de-fabri
 ```
 
@@ -100,6 +100,13 @@ expo build:android
 # o
 expo build:ios
 ```
+
+## 🔐 Credenciales de prueba
+
+Para probar la funcionalidad de autenticación, puedes usar las siguientes credenciales:
+
+- **Email:** `fabri@coder.com`
+- **Contraseña:** `fabri2025`
 
 ## 👨‍💻 Desarrollador
 
