@@ -8,6 +8,7 @@ import { colors } from '../global/colors';
 import { useWindowDimensions } from 'react-native';
 import { useEffect,useState } from 'react';
 import { StyleSheet } from 'react-native';
+import ProfileStackNavigator from './ProfileStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ export default function TabNavigator() {
         }
     },[width])
 
-    return (
+     return (
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
@@ -51,6 +52,13 @@ export default function TabNavigator() {
                 component={OrdersStackNavigator}
                 options={{
                     tabBarIcon: ({focused}) => <Icon name="tablet" size={24} color={focused?colors.darkGray:colors.mediumGray} />
+                }}
+            />
+            <Tab.Screen
+                name="Profile"
+                component={ProfileStackNavigator}
+                options={{
+                    tabBarIcon: ({focused}) => <Icon name="user" size={24} color={focused?colors.darkGray:colors.mediumGray} />
                 }}
             />
             <Tab.Screen

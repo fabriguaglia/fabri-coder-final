@@ -1,27 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
-    name: "user",
-    initialState: {
-        userEmail: null,
-        localId: null,
-        profilePicture: ""
+    name:"user",
+    initialState:{
+        userEmail:"",
+        localId:"",
+        profilePicture:""
     },
-    reducers: {
-        setUser: (state, action) => {
-            state.userEmail = action.payload;
+    reducers:{
+        setUser: (state,action)=>{
+            state.userEmail=action.payload.email
+            state.localId=action.payload.localId
         },
-        clearUser: (state) => {
-            state.userEmail = null;
-            state.localId = null;
-            state.profilePicture = "";
+        clearUser: (state)=>{
+            state.userEmail=""
         },
-        setUserData: (state, action) => {
-            state.userEmail = action.payload.email;
-            state.localId = action.payload.localId;
+        setProfilePicture: (state, action)=>{
+            state.profilePicture = action.payload
         }
-    }
-});
 
-export const { setUser, clearUser, setUserData } = userSlice.actions;
-export default userSlice.reducer;
+    }
+})
+
+export const {setUser,clearUser, setProfilePicture} = userSlice.actions
+
+export default userSlice.reducer
