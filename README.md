@@ -1,10 +1,10 @@
-<div align="center">
-  <img src="./logo.png" alt="La Tienda de Fabri Logo" width="200" height="150">
-</div>
-
 # 📱 La Tienda de Fabri
 
 **La Tienda de Fabri** es una aplicación móvil de e-commerce especializada en productos electrónicos, desarrollada como proyecto final para la aprobación del curso de Desarrollo de Aplicaciones de **[CoderHouse]**(https://www.coderhouse.com/). 
+
+<div align="center">
+  <img src="./logo.png" alt="La Tienda de Fabri Logo" width="200" height="200">
+</div>
 
 ## 🎯 Funcionalidades
 
