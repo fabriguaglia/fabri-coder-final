@@ -1,15 +1,17 @@
-import { StyleSheet, Text, View, TextInput, Pressable, Dimensions, Image } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Pressable, Dimensions, Image, Switch } from 'react-native'
 import { colors } from '../../global/colors';
 import { useEffect, useState } from 'react';
 import { useLoginMutation } from '../../services/auth/authApi';
 import { setUser } from '../../shop/user/userSlice';
 import { useDispatch } from 'react-redux';
+import { saveSession, clearSession } from '../../db';
 
 const textInputWidth = Dimensions.get('window').width * 0.7
 
 const LoginScreen = ({ navigation, route }) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [persistSession, setPersistSession] = useState(false)
     const [triggerLogin, result] = useLoginMutation()
 
     const dispatch = useDispatch()
@@ -19,9 +21,26 @@ const LoginScreen = ({ navigation, route }) => {
     }
 
     useEffect(() => {
-        if (result.status === "fulfilled") {
-            dispatch(setUser({email: result.data.email, localId: result.data.localId}))
-        }
+        const saveLoginSession = async () => {
+            if (result.status === "fulfilled") {
+                try {
+                    const { localId, email } = result.data;
+
+                    if (persistSession) {
+                        await saveSession(localId, email);
+                    } else {
+                        await clearSession();
+                    }
+                    dispatch(setUser({ localId, email }));
+                } catch (error) {
+                    console.log("error al guardar sesion:", error);
+                }
+            } else if (result.status === "rejected") {
+                console.log("error al iniciar sesion");
+            }
+        };
+
+        saveLoginSession();
     }, [result]);
 
     return (
@@ -75,6 +94,16 @@ const LoginScreen = ({ navigation, route }) => {
             <Pressable style={styles.btn} onPress={onsubmit}>
                 <Text style={styles.btnText}>Iniciar sesión</Text>
             </Pressable>
+
+            <View style={styles.rememberMe}>
+                <Text style={{ color: colors.white }}>Mantener sesión iniciada</Text>
+                <Switch
+                    onValueChange={() => setPersistSession(!persistSession)}
+                    value={persistSession}
+                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                />
+            </View>
+
         </View>
     )
 }
@@ -152,5 +181,11 @@ const styles = StyleSheet.create({
         color: colors.white,
         margin: 16,
         textAlign: 'center'
+    },
+    rememberMe: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 8
     }
 })

@@ -1,10 +1,26 @@
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native'
 import { colors } from '../global/colors'
 import { useNavigation } from '@react-navigation/native'
+import Icon from 'react-native-vector-icons/Feather'
+import { clearSession } from '../db'
+import { clearUser } from '../features/user/userSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Header = ({ title, subtitle, imageSource }) => {
   const navigation = useNavigation()
   const canGoBack = navigation.canGoBack()
+  const user = useSelector(state => state.userReducer.userEmail)
+
+  const dispatch = useDispatch()
+
+  const handleClearSession = async () => {
+    try {
+      await clearSession()
+      dispatch(clearUser())
+    } catch {
+      //console.log("error al limpiar la sesión")
+    }
+  }
 
   return (
     <View style={styles.container}>
