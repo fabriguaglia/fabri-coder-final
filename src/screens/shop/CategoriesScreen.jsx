@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native
 import FlatCard from '../../components/FlatCard'
 import TextTilliumReg from '../../components/TextTilliumReg'
 import { useSelector, useDispatch } from 'react-redux'
-import { setCategorieSelected, filterProducts } from '../../shop/shop/shopSlice'
+import { setCategorieSelected, filterProducts } from '../../features/shop/shopSlice'
 import { useGetCategoriesQuery, useGetProductsByCategoryQuery } from '../../services/shop/shopApi'
 
 const CategoriesScreen = ({ navigation }) => {

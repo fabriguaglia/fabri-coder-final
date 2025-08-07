@@ -3,11 +3,11 @@ import AuthStackNavigator from "./AuthStackNavigator";
 import TabNavigator from "./TabNavigation";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetProfilePictureQuery } from "../services/user/userApi";
-import { setProfilePicture } from "../shop/user/userSlice";
+import { setProfilePicture } from "../features/user/userSlice";
 import { useEffect, useState } from "react";
 import { initSessionTable, getSession } from "../db";
 import { ActivityIndicator, View } from "react-native";
-import { setUser } from "../shop/user/userSlice";
+import { setUser } from "../features/user/userSlice";
 import { colors } from "../global/colors";
 
 export default function MainNavigator() {

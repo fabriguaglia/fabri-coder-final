@@ -7,7 +7,7 @@ import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 import { useSelector, useDispatch } from 'react-redux';
 import { usePutProfilePictureMutation } from '../../services/user/userApi';
-import { setProfilePicture } from '../../shop/user/userSlice';
+import { setProfilePicture } from '../../features/user/userSlice';
 
 const ProfileScreen = () => {
     const user = useSelector(state => state.userReducer.userEmail)

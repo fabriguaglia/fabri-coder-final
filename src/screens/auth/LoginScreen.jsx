@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TextInput, Pressable, Dimensions, Image, Switch
 import { colors } from '../../global/colors';
 import { useEffect, useState } from 'react';
 import { useLoginMutation } from '../../services/auth/authApi';
-import { setUser } from '../../shop/user/userSlice';
+import { setUser } from '../../features/user/userSlice';
 import { useDispatch } from 'react-redux';
 import { saveSession, clearSession } from '../../db';
 

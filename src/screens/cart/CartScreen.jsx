@@ -3,7 +3,7 @@ import { colors } from '../../global/colors'
 import FlatCard from '../../components/FlatCard'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeItems } from '../../shop/cart/cartSlice'
+import { removeItems } from '../../features/cart/cartSlice'
 
 const CartScreen = () => {
 
