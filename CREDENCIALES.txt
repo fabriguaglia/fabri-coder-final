@@ -1,0 +1,6 @@
+Credenciales de prueba:
+
+e-mail: fabri@coder.com
+contraseña: fabri2025
+
+De igual forma se podrá crear una cuenta nueva haciendo uso del Sign up.
